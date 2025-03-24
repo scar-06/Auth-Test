@@ -1,6 +1,7 @@
 package com.grubhive.auth_test.service;
 
 
+import com.grubhive.auth_test.enums.Roles;
 import jakarta.annotation.PostConstruct;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,8 +25,8 @@ public class UserDetailsService implements org.springframework.security.core.use
     public void init() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         users = Arrays.asList(
-                new User("user", encoder.encode("password"), Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))),
-                new User("admin", encoder.encode("password"), Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN")))
+                new User("user", encoder.encode("password"), Collections.singletonList(new SimpleGrantedAuthority(Roles.USER.name()))),
+                new User("admin", encoder.encode("password"), Collections.singletonList(new SimpleGrantedAuthority(Roles.ADMIN.name())))
         );
     }
 
