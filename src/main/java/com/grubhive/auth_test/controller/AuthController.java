@@ -15,7 +15,7 @@ public class AuthController {
     @GetMapping
     public Map<String, String> getUserInfo() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return java.util.Map.of("User", auth.getName(), "Role", auth.getAuthorities().iterator().next().getAuthority());
+        return Map.of("User", auth.getName(), "Role", auth.getAuthorities().iterator().next().getAuthority());
     }
 }
 
