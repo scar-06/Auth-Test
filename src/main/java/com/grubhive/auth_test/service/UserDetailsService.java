@@ -1,10 +1,9 @@
-package com.grubhive.auth_test.entity;
+package com.grubhive.auth_test.service;
 
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +17,7 @@ import java.util.List;
 
 
 @Component
-public class InMemoryUserDetailsService implements UserDetailsService {
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
     private List<UserDetails> users;
 
     @PostConstruct

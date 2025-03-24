@@ -1,8 +1,7 @@
 package com.grubhive.auth_test.config;
 
-import com.grubhive.auth_test.entity.InMemoryUserDetailsService;
+import com.grubhive.auth_test.service.UserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -14,7 +13,7 @@ import org.springframework.security.core.Authentication;
 
 @Component
 class CustomAuthProvider implements AuthenticationProvider {
-    private final UserDetailsService userDetailsService = new InMemoryUserDetailsService();
+    private final org.springframework.security.core.userdetails.UserDetailsService userDetailsService = new UserDetailsService();
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
